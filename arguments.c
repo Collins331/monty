@@ -1,16 +1,14 @@
 #include "monty.h"
 /**
  * arguments - entry point
- * @argc: the number of argument
- * @argv: the arguments
- * Return: 0(success) else error set appropriately
+ * @ac: the number of argument
+ * Return: nothing
  */
-int arguments(int argc)
+void arguments(int ac)
 {
-    if (argc != 2)
-    {
-        fprintf(stderr, "USAGE: monty file\n");
-        exit(EXIT_FAILURE);
-    }
-    return (0);
+	if (ac != 2)
+	{
+		dprintf(2, "USAGE : monty file\n");
+		exit(EXIT_FAILURE);
+	}
 }

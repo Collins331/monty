@@ -5,7 +5,28 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
-int arguments(int argc);
+#include <ctype.h>
+#include <fcntl.h>
+
+/**
+ * struct arg_s - gets arguments
+ * @stream: the file to open
+ * @line: the line to read
+ */
+typedef struct arg_s
+{
+	FILE *stream;
+	char *line;
+} arg_t;
+
+extern arg_t *args;
+
+void free_args(void);
+void malloc_fail(void);
+void get_stream(char *filename);
+void stream_fail(char *filename);
+
+void arguments(int argc);
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
