@@ -1,5 +1,7 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef _MONTY_H
+#define _MONTY_H
+
+#define _GNU_SOURCE
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -8,25 +10,6 @@
 #include <ctype.h>
 #include <fcntl.h>
 
-/**
- * struct arg_s - gets arguments
- * @stream: the file to open
- * @line: the line to read
- */
-typedef struct arg_s
-{
-	FILE *stream;
-	char *line;
-} arg_t;
-
-extern arg_t *args;
-
-void free_args(void);
-void malloc_fail(void);
-void get_stream(char *filename);
-void stream_fail(char *filename);
-
-void arguments(int argc);
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -56,5 +39,29 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+ * struct cmd_t - file and its content
+ * @fd: file descriptor
+ * @line: the line of the file
+ */
+typedef struct cmd_s
+{
+	FILE *fd;
+	char *line;
+} cmd_t;
+
+extern cmd_t cmd;
+
+void arguments(int argc);
+stack_t *newnode(int i);
+void push(stack_t **stack, unsigned int line);
+void pall(stack_t **stack, unsigned int line);
+void pint(stack_t **stack, unsigned int line);
+void pop(stack_t **stack, unsigned int line);
+extern int num;
+void free_stack(stack_t *stack);
+void clean_stack(stack_t **stack);
+void interpretor(char *argv);
 
 #endif
