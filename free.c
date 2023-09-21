@@ -8,10 +8,10 @@ void free_stack(stack_t *stack)
 {
 	stack_t *node = NULL;
 
-	node = stack;
-	while (node != NULL)
+	while (stack != NULL)
 	{
-		free_stack(node->next);
+		node = stack;
+		stack = stack->next;
 		free(node);
 	}
 }

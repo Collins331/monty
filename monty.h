@@ -67,8 +67,5 @@ void open_error(char *file);
 void push_error(FILE *fd, char *line, stack_t *stack, int line_number);
 void inst_error(FILE *fd, char *line, stack_t *stack, char *val, int line_n);
 int is_digit(char *c);
-int check_push(char *token);
-int get_value(char *token);
-char get_token(char *op, char *token);
 
 #endif
