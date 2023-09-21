@@ -22,9 +22,10 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 		{"swap", swap},
 		{"nop", nop},
 		{"sub", sub},
-		/*{"mul", mul},*/
+		{"mul", mul},
 		{"div", divd},
-		/*{"mod", mod},*/
+		{"mod", mod},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 
