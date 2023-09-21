@@ -63,5 +63,10 @@ extern int num;
 void free_stack(stack_t *stack);
 void clean_stack(stack_t **stack);
 void interpretor(char *argv);
+int get_opc(stack_t **stack, char *arg, char *val, int line_number);
+void open_error(char *file);
+void push_error(FILE *fd, char *line, stack_t *stack, int line_number);
+void instr_error(FILE *fd, char *line, stack_t *stack, char *val, int line_n);
+int _isdigit(char *c);
 
 #endif
