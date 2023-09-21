@@ -2,8 +2,8 @@
 
 /**
  * get_opc - gets the opcode function
- * @stack: pointer to the stack or queue
- * @arg: the command
+ * @stack: pointer to the top of stack
+ * @arg: the argument
  * @val: the value
  * @line_number: the line number
  * Return: 0 on success || 1 if not a digit || -1 on error
@@ -27,10 +27,10 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 		{
 			if (!strcmp(arg, "push"))
 			{
-				if (_isdigit(val) == 1)
+				if (is_digit(val) == 1)
 					num = atoi(val);
 				else
-					return (1);/** if not digit*/
+					return (1);
 			}
 			op[i].f(stack, (unsigned int)line_number);
 			break;

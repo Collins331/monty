@@ -1,23 +1,23 @@
 #include "monty.h"
 
 /**
- * _isdigit - checks if it is a digit
+ * is_digit - checks if it is a digit
+ * @c: the parameter
  * Return: 0 or 1
- * @c: Value
  **/
 
-int _isdigit(char *c)
+int is_digit(char *c)
 {
-	char *tmp = c;
+	char *temp = c;
 
 	if (c == NULL)
 		return (0);
-	if (*tmp == '-')
-		tmp++;
+	if (*temp == '-')
+		temp++;
 
-	for (; *tmp != '\0'; tmp++)
+	for (; *temp != '\0'; temp++)
 	{
-		if ((*tmp < '0' || *tmp > '9'))
+		if ((*temp < '0' || *temp > '9'))
 		{
 			return (0);
 		}

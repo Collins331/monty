@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * arguments - entry point
+ * usage - entry point
  * @argc: the arguments count
  * Return: void
  */
-void arguments(int argc)
+void usage(int argc)
 {
 	if (argc != 2)
 	{
@@ -13,24 +13,23 @@ void arguments(int argc)
 	}
 }
 /**
- *open_error - prints an open file error message
+ *open_error - prints error message when open file fail
  *@file: file
- * Return: FAILURE
+ * Return: void
  */
 
 void open_error(char *file)
 {
 	dprintf(2, "Error: Can't open file %s\n", file);
-
 	exit(EXIT_FAILURE);
 
 }
 
 /**
- * push_error - handles a push error
+ * push_error - prints error when push to stack fail
  * @fd: file desciptor
  * @line: buffer
- * @stack:  stack or queue
+ * @stack:  pointer to stack
  * @line_number: line number of the command
  */
 
@@ -44,15 +43,15 @@ void push_error(FILE *fd, char *line, stack_t *stack, int line_number)
 }
 
 /**
- * instr_error - Error handler for unknown instructions
+ * inst_error - handles unknown instructions
  * @fd: file descriptor
  * @line: buffer
- * @stack:  stack or queue
+ * @stack:  pointer to the stack
  * @line_n: line number of the command
  * @val: instruction
  */
 
-void instr_error(FILE *fd, char *line, stack_t *stack, char *val, int line_n)
+void inst_error(FILE *fd, char *line, stack_t *stack, char *val, int line_n)
 {
 	dprintf(2, "L%u: unknown instruction %s\n", line_n, val);
 	fclose(fd);

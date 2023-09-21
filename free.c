@@ -16,15 +16,15 @@ void free_stack(stack_t *stack)
 	}
 }
 /**
- * clean_stack - frees all nodes in stack
+ * clear_stack - frees all nodes in stack
  * @stack: pointer to the top of stack
  * Return: void
  */
-void clean_stack(stack_t **stack)
+void clear_stack(stack_t **stack)
 {
 	stack_t *temp = *stack;
 
-	while (temp != NULL)
+	while (temp)
 	{
 		temp = *stack;
 		*stack = (*stack)->next;

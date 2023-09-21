@@ -8,7 +8,8 @@
 int main(int argc, char **argv)
 {
 
-	arguments(argc);
+	usage(argc);
+
 	interpretor(argv[1]);
 
 	return (0);

@@ -1,5 +1,7 @@
 #include "monty.h"
+
 int num;
+
 /**
  * newnode - creates a new node
  * @i: the value to add in the node
@@ -24,16 +26,18 @@ stack_t *newnode(int i)
 /**
  * push - adds a node into stack
  * @stack: pointer to the top of stack
- * @line: the number of line a file
+ * @line_number: the number of line a file
  * Return: void
  */
-void push(stack_t **stack, unsigned int line)
+void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = NULL;
-	(void) line;
+	(void) line_number;
 
 	temp = newnode(num);
+
 	temp->next = *stack;
+
 	if (*stack != NULL)
 	{
 		(*stack)->prev = temp;
@@ -43,13 +47,14 @@ void push(stack_t **stack, unsigned int line)
 /**
  * pall - prints all the stack value
  * @stack: the pointer to the top of stack
- * @line: unsigned integer
+ * @line_number: unsigned integer
  * Return: void
  */
-void pall(stack_t **stack, unsigned int line)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
-	(void) line;
+
+	(void) line_number;
 
 	node = *stack;
 	while (node != NULL)
@@ -61,14 +66,14 @@ void pall(stack_t **stack, unsigned int line)
 /**
  * pint - prints the value at the top of the stack
  * @stack: double pointer to the head of the stack
- * @line: line number
+ * @line_number: line number
  */
-void pint(stack_t **stack, unsigned int line)
+void pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL || stack == NULL)
 	{
-		dprintf(2, "L%d: can't pint, stack empty\n", line);
-		clean_stack(stack);
+		dprintf(2, "L%d: can't pint, stack empty\n", line_number);
+		clear_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -79,16 +84,16 @@ void pint(stack_t **stack, unsigned int line)
 /**
  * pop - removes the top element from the stack
  * @stack: pointer to the top of stack
- * @line: line number
+ * @line_number: line number
  * Return: void
  */
-void pop(stack_t **stack, unsigned int line)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
 	if (!*stack)
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n", line);
+		dprintf(2, "L%u: can't pop an empty stack\n", line_number);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
