@@ -62,6 +62,12 @@ void mod(stack_t **stack, unsigned int line_number)
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
+	if ((*stack)->n == 0)
+	{
+		dprintf(2, "L%d: division by zero\n", line_number);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
 	temp = (*stack)->next;
 	result = temp->n;
 	result %= (*stack)->n;
