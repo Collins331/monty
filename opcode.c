@@ -18,8 +18,8 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 		{"pall", pall},
 		{"pint", pint},
 		{"pstr", pstr},
-		/*{"rotl", rotl},*/
-		/*{"rotr", rotr},*/
+		{"rotl", rotl},
+		{"rotr", rotr},
 		{"pop", pop},
 		{"add", add},
 		{"swap", swap},
